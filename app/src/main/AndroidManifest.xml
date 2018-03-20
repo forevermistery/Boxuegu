@@ -31,7 +31,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
+
+        <!--//2018.3.20-->
+
+        <activity android:name=".LoginActivty"/>
+        <activity android:name=".RegisterActivity"/>
     </application>
+
 
 </manifest>

@@ -13,6 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.edu.gdmec.android.boxuegu02.utils.MD5Utils;
+
 public class RegisterActivity extends AppCompatActivity {
 //标题
     private TextView tv_main_title;
@@ -31,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        init();
     }
 
     private  void init(){
@@ -81,7 +84,12 @@ public class RegisterActivity extends AppCompatActivity {
                     Intent data=new Intent();
                     data.putExtra("username",userName);
                     setResult(RESULT_OK,data);
-                    RegisterActivity.this.finish();
+
+//                    //
+//                    Intent intent = new Intent(RegisterActivity.this, LoginActivty.class);
+//                    startActivity(intent);
+//                    //
+                   RegisterActivity.this.finish();
 
                 }
 
@@ -103,5 +111,15 @@ public class RegisterActivity extends AppCompatActivity {
             has_userName=true;
         }
         return has_userName;
+    }
+    private void saveRegisterInfo(String userName,String psw){
+  String md5Psw= MD5Utils.md5(psw);//把密码用MD5加密
+        SharedPreferences sp=getSharedPreferences("loginInfo",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sp.edit();//获取编辑器
+        editor.putString(userName,md5Psw);
+        //以用户名为key，密码为value保存在SharePreferences中
+        editor.commit();//提交修改
+
+
     }
 }
