@@ -1,19 +1,17 @@
-package cn.edu.gdmec.android.boxuegu02;
+package cn.edu.gdmec.android.boxuegu02.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.edu.gdmec.android.boxuegu02.R;
 import cn.edu.gdmec.android.boxuegu02.utils.MD5Utils;
 
 /**

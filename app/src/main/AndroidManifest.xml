@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -24,7 +24,7 @@
             <!-- </intent-filter> -->
 
         </activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,8 +34,9 @@
 
         <!--//2018.3.20-->
 
-        <activity android:name=".LoginActivty"/>
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".Activity.LoginActivty"/>
+        <activity android:name=".Activity.RegisterActivity"/>
+
     </application>
 
 

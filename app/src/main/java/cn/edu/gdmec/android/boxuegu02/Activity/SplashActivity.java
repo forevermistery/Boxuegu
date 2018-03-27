@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.boxuegu02;
+package cn.edu.gdmec.android.boxuegu02.Activity;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cn.edu.gdmec.android.boxuegu02.R;
 
 /**
  * Created by apple on 18/3/13.
