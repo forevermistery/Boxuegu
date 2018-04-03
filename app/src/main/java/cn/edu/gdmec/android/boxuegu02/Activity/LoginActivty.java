@@ -66,9 +66,9 @@ public class LoginActivty  extends AppCompatActivity {
         tv_find_psw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //此界面暂
-                //Intent intent=new Intent(loginActivity.this,FindPswActivity.class);
-                //startActivity(intent);
+
+                Intent intent=new Intent(LoginActivty.this,FindPswActivity.class);
+                startActivity(intent);
             }
         });
         //登录按钮的点击事件
@@ -90,6 +90,7 @@ public class LoginActivty  extends AppCompatActivity {
                     saveLoginStatus(true,userName);
                     Intent data=new Intent();
                     data.putExtra("isLogin",true);
+                    data.putExtra("userName",true);
                     setResult(RESULT_OK,data);
                     Intent intent=new Intent(LoginActivty.this,MainActivity.class);
                     startActivity(intent);

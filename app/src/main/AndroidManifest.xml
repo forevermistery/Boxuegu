@@ -36,6 +36,9 @@
 
         <activity android:name=".Activity.LoginActivty"/>
         <activity android:name=".Activity.RegisterActivity"/>
+        <activity android:name=".Activity.SettingActivity"/>
+        <activity android:name=".Activity.ModifyPswActivity"/>
+        <activity android:name=".Activity.FindPswActivity"/>
 
     </application>
 
