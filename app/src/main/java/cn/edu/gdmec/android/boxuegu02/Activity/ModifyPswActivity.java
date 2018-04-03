@@ -35,22 +35,9 @@ public class ModifyPswActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_psw);
         initView();
-        userName= AnalysisUtils.readLoginUserName(this);
+        userName = AnalysisUtils.readLoginUserName(this);
 
-//        findViewById(R.id.btn_save).setOnClickListener(this);
     }
-
-//    private EditText getEtOriginalPsw() {
-//        return (EditText) findViewById(R.id.et_original_psw);
-//    }
-//
-//    private EditText getEtNewPsw() {
-//        return (EditText) findViewById(R.id.et_new_psw);
-//    }
-//
-//    private EditText getEtNewPswAgain() {
-//        return (EditText) findViewById(R.id.et_new_psw_again);
-//    }
 
     @Override
     public void onClick(View view) {
@@ -93,7 +80,7 @@ public class ModifyPswActivity extends Activity implements View.OnClickListener 
             Log.i("MD5Utils.md5(psw)",""+MD5Utils.md5(psw));
             Log.i("readPsw",""+readPsw());
 
-            Toast.makeText(this,"输入的密码与原始密码不一致，请重新输入",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"输入的密码与原始密码不一致",Toast.LENGTH_SHORT).show();
             return;
         }
 

@@ -12,19 +12,12 @@ import android.content.SharedPreferences;
 
 public class AnalysisUtils  {
 
-
-
-
-
-
-
-
     //读取用户名
 
 
     public static String readLoginUserName(Context context){
         SharedPreferences sp=context.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
-        String userName=sp.getString("loginUerName","");
+        String userName=sp.getString("loginUserName","");
         return userName;
 
     }
@@ -37,14 +30,14 @@ public class AnalysisUtils  {
         return isLogin;
 
     }
-    //读取用户名
+    //清楚登录状态
 
     public static void clearLoginStatus(Context context){
         SharedPreferences sp=context.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sp.edit();
 
         editor.putBoolean("isLogin",false);
-        editor.putString("loginUerName","");
+        editor.putString("loginUserName","");
         editor.commit();
     }
 

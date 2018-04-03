@@ -17,8 +17,7 @@ import cn.edu.gdmec.android.boxuegu02.utils.MD5Utils;
 
 public class FindPswActivity extends Activity implements View.OnClickListener {
 
-    private TextView tvUserName;
-    private TextView tvResetPsw;
+
     private TextView tv_back;
     private TextView tv_main_title;
     private TextView tv_save;
@@ -26,6 +25,7 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
     private TextView tv_user_name;
     private EditText et_user_name;
     private EditText et_validate_name;
+    private EditText et_reinput_password;
     private TextView tv_reset_psw;
     private Button btn_validate;
     private String from;
@@ -41,13 +41,7 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
 
     }
 
-    private EditText getEtUserName() {
-        return (EditText) findViewById(R.id.et_user_name);
-    }
 
-    private EditText getEtValidateName() {
-        return (EditText) findViewById(R.id.et_validate_name);
-    }
 
     @Override
     public void onClick(View view) {
@@ -68,7 +62,9 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
         tv_user_name = (TextView) findViewById(R.id.tv_user_name);
         et_user_name = (EditText) findViewById(R.id.et_user_name);
         et_validate_name = (EditText) findViewById(R.id.et_validate_name);
+        et_reinput_password=(EditText) findViewById(R.id.et_input_password);
         tv_reset_psw = (TextView) findViewById(R.id.tv_reset_psw);
+
         btn_validate = (Button) findViewById(R.id.btn_validate);
         if ("security".equals(from)){
             tv_main_title.setText("设置密保");
@@ -79,13 +75,14 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
             et_user_name.setVisibility(View.VISIBLE);
         }
 
-        btn_validate.setOnClickListener(this);
+
         tv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FindPswActivity.this.finish();
             }
         });
+        btn_validate.setOnClickListener(this);
     }
 
     private void submit() {
@@ -121,7 +118,9 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
             }
             else{
                 tv_reset_psw.setVisibility(View.VISIBLE);
-                tv_reset_psw.setText("初始密码:123456");
+                et_reinput_password.setVisibility(View.VISIBLE);
+                Toast.makeText(this, "请输入要设置的新密码", Toast.LENGTH_SHORT).show();
+                btn_validate.setText("设置");
                 savePsw(name);
             }
         }

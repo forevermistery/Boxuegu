@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Set;
+
 import cn.edu.gdmec.android.boxuegu02.R;
 import cn.edu.gdmec.android.boxuegu02.utils.AnalysisUtils;
 
@@ -86,7 +88,9 @@ public class SettingActivity extends Activity implements View.OnClickListener {
                 Intent data=new Intent();
                 data.putExtra("isLogin",false);
                 setResult(RESULT_OK,data);
-                finish();
+                Intent intents=new Intent(SettingActivity.this,MainActivity.class);
+
+               startActivity(intents);
                 break;
 
         }
