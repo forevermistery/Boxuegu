@@ -98,7 +98,7 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
                 FindPswActivity.this.finish();
             }
         }else{
-            String name=et_user_name.getText().toString().trim();
+            final String name=et_user_name.getText().toString().trim();
             String sp_security=readSecurity(name);
             if (TextUtils.isEmpty(name)){
                 Toast.makeText(this, "请输入您的用户名", Toast.LENGTH_SHORT).show();
@@ -121,7 +121,27 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
                 et_reinput_password.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "请输入要设置的新密码", Toast.LENGTH_SHORT).show();
                 btn_validate.setText("设置");
-                savePsw(name);
+                btn_validate.setOnClickListener(new View.OnClickListener(
+
+                ) {
+                    @Override
+                    public void onClick(View view) {
+
+                        String resetPwd = et_reinput_password.getText().toString().trim();
+                        //暂时仅验证不为空
+                        if (!TextUtils.isEmpty(resetPwd)) {
+                            savePsw(name,resetPwd);
+                            FindPswActivity.this.finish();
+                        } else {
+                            Toast.makeText(FindPswActivity.this, "请输入要设置的新密码", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                });
+
+
+
             }
         }
 
@@ -131,8 +151,8 @@ public class FindPswActivity extends Activity implements View.OnClickListener {
 
 
     }
-    private void savePsw(String name){
-        String md5Psw= MD5Utils.md5("123456");
+    private void savePsw(String name,String resetPwd){
+        String md5Psw= MD5Utils.md5(resetPwd);
         SharedPreferences sp=getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor=sp.edit();
         editor.putString(name,md5Psw);
