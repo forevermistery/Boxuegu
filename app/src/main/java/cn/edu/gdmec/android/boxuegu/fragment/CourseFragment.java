@@ -47,7 +47,7 @@ public class CourseFragment extends Fragment {
     private List<CourseBean> rList;
     private CourseListItemAdapter adapter;
 
-    private ADViewPagrAdapter viewPagrAdapter;
+    private ADViewPagrAdapter viewPagerAdapter;
 
 
     private List<View> dots;
@@ -59,7 +59,7 @@ public class CourseFragment extends Fragment {
             super.handleMessage(msg);
             switch (msg.what) {
                 case MSG_AD_SLID:
-                    if (viewPagrAdapter.getCount() > 0) {
+                    if (viewPagerAdapter.getCount() > 0) {
                         if (vp_adverBanner.getCurrentItem() == viewList.size() - 1) {
                             vp_adverBanner.setCurrentItem(0);
                         } else {
@@ -156,8 +156,8 @@ public class CourseFragment extends Fragment {
        viewList.add(imageView1);
        viewList.add(imageView2);
        viewList.add(imageView3);
-       viewPagrAdapter=new ADViewPagrAdapter(getActivity(),viewList);
-       vp_adverBanner.setAdapter(viewPagrAdapter);
+       viewPagerAdapter=new ADViewPagrAdapter(getActivity(),viewList);
+       vp_adverBanner.setAdapter(viewPagerAdapter);
 
        //圆点
        dots=new ArrayList<View>();
